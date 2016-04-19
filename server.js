@@ -2,13 +2,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var AppInsights = require('applicationinsights');
-var appInsights = new AppInsights(
- /* configuration can optionally be passed here instead of the environment variable, example:
- {
- instrumentationKey: "<guid>"
- }
- */
-);
+var appInsights = AppInsights.setup().start();
 var Game = require('./game.js');
 var routes = require('./routes/routes.js');
 var players = { };
